@@ -69,4 +69,20 @@ public class DishController {
 
         return Result.success();
     }
+
+    @GetMapping("/list")
+    @ApiOperation(value = "根据分类id查询菜品")
+    public Result<List<Dish>> list(Integer categoryId){
+        log.info("根据分类id查询菜品:{}",categoryId);
+        List<Dish> list = dishService.list(categoryId);
+        return Result.success(list);
+    }
+
+    @PostMapping("/status/{status}")
+    @ApiOperation(value = "菜品起售、停售")
+    public Result changeStatus(@PathVariable Integer status, @RequestParam Long id){
+        log.info("菜品起售、停售:{},{}",status,id);
+        dishService.changeStatus(status,id);
+        return Result.success();
+    }
 }
