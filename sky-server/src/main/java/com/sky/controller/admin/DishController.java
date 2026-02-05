@@ -72,7 +72,7 @@ public class DishController {
 
     @GetMapping("/list")
     @ApiOperation(value = "根据分类id查询菜品")
-    public Result<List<Dish>> list(Integer categoryId){
+    public Result<List<Dish>> list(Long categoryId){
         log.info("根据分类id查询菜品:{}",categoryId);
         List<Dish> list = dishService.list(categoryId);
         return Result.success(list);

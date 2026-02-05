@@ -44,7 +44,7 @@ public interface DishMapper {
     @AutoFill(value = OperationType.UPDATE)
     void update(Dish dish);
 
-    List<Dish> list(Integer category);
+    List<Dish> list(Long category);
 
     @Update("update dish set status = #{status} where id = #{id}")
     void changeStatus(Integer status, Long id);
